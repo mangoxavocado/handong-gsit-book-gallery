@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Gallery (Sorted)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .book-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .book-card__image-container {
+            width: 100%;
+            height: 300px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .book-card__placeholder-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .book-card__info {
+            padding: 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-card__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #343a40;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.3;
+        }
+        .book-card__translator {
+            font-size: 0.85rem;
+            color: #495057;
+            margin: 0 0 0.5rem 0;
+        }
+        .book-card__author {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin: 0;
+            margin-top: auto; /* Pushes author to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Collection</h1>
+    <div class="gallery-container">
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=935476" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/93/54/cover500/8958030585_1.jpg" alt="1% 너머로 보는 지역활성화" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">1% 너머로 보는 지역활성화</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">지바 미쓰유키</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=864625" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/86/46/cover500/8984711772_1.jpg" alt="EKG 교회성장을 바라시는 하나님의 마음소리" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">EKG 교회성장을 바라시는 하나님의 마음소리</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">켄 헴필</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=102450106" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/10245/1/cover500/8957403345_1.jpg" alt="S.D.고든의 제자" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">S.D.고든의 제자</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">S.D.고든</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=335192516" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/33519/25/cover500/k642938655_1.jpg" alt="가장 어두운 밤, 가장 밝은 낮" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">가장 어두운 밤, 가장 밝은 낮</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">마티 마쵸스키</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=355862941" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/35586/29/cover500/k692036795_1.jpg" alt="강한 사람은 조용히 일하고 소리 없이 이긴다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">강한 사람은 조용히 일하고 소리 없이 이긴다</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">제시카 천</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1913249" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/191/32/cover500/8972975621_1.jpg" alt="건축학교에서 배운 101가지" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">건축학교에서 배운 101가지</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">매튜 프레더릭</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=134098380" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/13409/83/cover500/8958742895_1.jpg" alt="결혼, 영성에 눈뜨다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">결혼, 영성에 눈뜨다</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">게리 토마스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2906662" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/290/66/cover500/8975100421_1.jpg" alt="거룩함" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">거룩함</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">앤드류 머레이</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=19778295" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1977/82/cover500/8960009202_1.jpg" alt="거룩한 나침반" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">거룩한 나침반</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">브렌트 빌</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=6561535" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/656/15/cover500/8996296236_1.jpg" alt="거친 하나님" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">거친 하나님</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">마크 갤리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=14354972" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1435/49/cover500/8932550344_1.jpg" alt="격려" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">격려</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">해럴드 마이라</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=4352971" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/435/29/cover500/8984989797_1.jpg" alt="광장" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">광장</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">프랑코 만쿠조</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=11843076" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1184/30/cover500/8955363842_1.jpg" alt="교회를 세우는 교회" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">교회를 세우는 교회</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">진 그레이엄</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=7159239" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/715/92/cover500/8955363605_1.jpg" alt="교리 이전에 영성이다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">교리 이전에 영성이다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">프랭크 바이올라</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=353991680" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/35399/16/cover500/k242035014_1.jpg" alt="금가루 수업" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">금가루 수업</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">캐서린 폰더</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=109275643" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/10927/56/cover500/8938816125_1.jpg" alt="긍휼" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">긍휼</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">조슈아 맥</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=6992664" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/699/26/cover500/8974192799_1.jpg" alt="기도 응답의 축복" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">기도 응답의 축복</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">앤드류 머레이</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=877052" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/87/70/cover500/8992107161_1.jpg" alt="기독교세계관으로 본 과학" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">기독교세계관으로 본 과학</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">레스터 E. 쇼월터</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2138240" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/213/82/cover500/8955362943_1.jpg" alt="기독교의 기본 진리" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">기독교의 기본 진리</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">존 스토트</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=886975" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/88/69/cover500/8955362447_1.jpg" alt="기막히게 크신 하나님을 만나다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">기막히게 크신 하나님을 만나다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">루이 기글리오</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=57795677" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/5779/56/cover500/8904165059_1.jpg" alt="나는 하나님을 아는가 하나님도 나를 아는가" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나는 하나님을 아는가 하나님도 나를 아는가</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">튤리안 차비진</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=5943977" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/594/39/cover500/8904158842_1.jpg" alt="나는 하나님을 아는가?" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나는 하나님을 아는가?</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">튤리안 차비진</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=359485881" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/35948/58/cover500/k332037800_1.jpg" alt="나는 내 남편의 돕는 배필입니다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나는 내 남편의 돕는 배필입니다</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">베벌리 브래들리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=148935805" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/14893/58/cover500/k142532553_1.jpg" alt="나는 누구인가" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나는 누구인가</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크레이그 그로쉘</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=7055422" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/705/54/cover500/8958072822_1.jpg" alt="나는 희망을 던진다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나는 희망을 던진다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">오스틴 구트와인</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=258603106" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/25860/31/cover500/k682737367_1.jpg" alt="나만의 커피 레시피 북" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">나만의 커피 레시피 북</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">다니엘 랭커스터</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=16711579" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1671/15/cover500/8904159830_1.jpg" alt="남편을 돕는 기도는 따로 있다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">남편을 돕는 기도는 따로 있다</h3>
+                <p class="book-card__translator">번역: 안지영</p>
+                <p class="book-card__author">스토미 오마샨</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=31391737" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3139/17/cover500/8967905009_1.jpg" alt="네 삶을 흔들어라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">네 삶을 흔들어라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크레이그 그로쉘</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=27118793" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/2711/87/cover500/8973433806_1.jpg" alt="내 안에 적이 있는 이유" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">내 안에 적이 있는 이유</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">론 카펜터 주니어</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1706382" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/170/63/cover500/8955362757_1.jpg" alt="너를 비워 세상을 채워라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">너를 비워 세상을 채워라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크레이그 볼레즈</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=7385504" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/738/55/cover500/8958741546_1.jpg" alt="놀라운 하나님의 사랑" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">놀라운 하나님의 사랑</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">제임스 B. 스미스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=619439" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/61/94/cover500/8984711551_1.jpg" alt="다시 시작하기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">다시 시작하기</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">밥 가스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1001507" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/100/15/cover500/8955362633_1.jpg" alt="당신을 통해 존경 받아야 할 예수" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">당신을 통해 존경 받아야 할 예수</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">딘 메릴</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=339337768" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/33933/77/cover500/k112930134_1.jpg" alt="데이터의 함정" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">데이터의 함정</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">앤디 맥밀런,자넬 에스테스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1941224" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/194/12/cover500/8955362846_1.jpg" alt="데이비드 크라우더의 찬양하는 습관" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">데이비드 크라우더의 찬양하는 습관</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">데이비드 크라우더</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=13389351" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1338/93/cover500/8955363869_1.jpg" alt="돌파하는 믿음" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">돌파하는 믿음</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">밥 소르기</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1035787" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/103/57/cover500/8955362765_1.jpg" alt="두 개의 문" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">두 개의 문</h3>
+                <p class="book-card__translator">번역: 유아람</p>
+                <p class="book-card__author">존 볼린</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2556383" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/255/63/cover500/8993430012_1.jpg" alt="마리아의 영성 갖기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">마리아의 영성 갖기</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">조안나 위버</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=5903154" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/590/31/cover500/890415880x_1.jpg" alt="마리아처럼 기도하고 마르다처럼 일하라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">마리아처럼 기도하고 마르다처럼 일하라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">토미 테니</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=12521197" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1252/11/cover500/8955363885_1.jpg" alt="마음과 마음이 이어질 때" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">마음과 마음이 이어질 때</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">존 맥스웰</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=340489448" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/34048/94/cover500/8955969775_1.jpg" alt="매일 파는 인간" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">매일 파는 인간</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">칼 자이스,토마스 고든</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=329604194" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/32960/41/cover500/8934965770_1.jpg" alt="무의식적 편견" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">무의식적 편견</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">패멀라 풀러,마크 머피,앤 차우</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=350653032" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/35065/30/cover500/k632934299_2.jpg" alt="비 오는 날 개구리 이야기와 우화들" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">비 오는 날 개구리 이야기와 우화들</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">마이클 제임스 다울링</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2809190" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/280/91/cover500/8996031682_1.jpg" alt="변화" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">변화</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">릭 맥킨리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=34524041" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3452/40/cover500/1185098100_1.jpg" alt="복음에 더할 것은 없다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">복음에 더할 것은 없다</h3>
+                <p class="book-card__translator">번역: 안지영</p>
+                <p class="book-card__author">앤드류 팔리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=4394368" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/439/43/cover500/8955363222_1.jpg" alt="불처럼 타오르는 세대" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">불처럼 타오르는 세대</h3>
+                <p class="book-card__translator">번역: 유아람</p>
+                <p class="book-card__author">윈키 프레트니</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=145888887" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/14588/88/cover500/8938816338_1.jpg" alt="관계 중심의 어린이 사역" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">관계 중심의 어린이 사역</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">댄 로발리아</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=416071" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/41/60/cover500/898908556x_1.jpg" alt="사랑과 행복 그 이상의 결혼 이야기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">사랑과 행복 그 이상의 결혼 이야기</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">게리 토마스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=888579" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/88/85/cover500/8995917202_1.jpg" alt="새로운 교회가 오고 있다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">새로운 교회가 오고 있다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">래리 크라이더</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=18460866" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1846/8/cover500/8959372846_1.jpg" alt="선하게 태어난 우리" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">선하게 태어난 우리</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">음포 투투,데즈먼드 음필로 투투</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=66162400" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/6616/24/cover500/8938815854_1.jpg" alt="성경, 왜 믿어야 하는가" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성경, 왜 믿어야 하는가</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">케빈 드영</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=48941156" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/4894/11/cover500/8904164834_1.jpg" alt="성경대로 생각하라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성경대로 생각하라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">랄프 카이퍼</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=16002030" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1600/20/cover500/8955363966_1.jpg" alt="성경이 말하게 하라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성경이 말하게 하라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">나이젤 베이넌,앤드류 사치</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=32295656" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3229/56/cover500/8955364342_1.jpg" alt="성경이 말하게 하라 : 출애굽기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성경이 말하게 하라 : 출애굽기</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">앤드류 사치,리처드 올드리트</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=179427606" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/17942/76/cover500/8938816443_1.jpg" alt="성경의 패러독스, 그 특별한 지혜" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성경의 패러독스, 그 특별한 지혜</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">워렌 W. 위어스비</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1104618" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/110/46/cover500/8955362382_1.jpg" alt="성령을 아는 지식" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성령을 아는 지식</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">J. I. 패커 외</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=3371150" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/337/11/cover500/8992358261_1.jpg" alt="성령을 이렇게 받으라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">성령을 이렇게 받으라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">퀸 셰러</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=14599424" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1459/94/cover500/8955363923_1.jpg" alt="세상을 가슴 뛰게 할 교회" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">세상을 가슴 뛰게 할 교회</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">웨인 코데이로</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=35093057" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3509/30/cover500/8955364393_1.jpg" alt="소명 여행자" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">소명 여행자</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">게리 바칼로우</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=300742" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/0/30/cover500/8955361270_1.jpg" alt="순전한 기독교" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">순전한 기독교</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">C.S. 루이스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=16212890" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1621/28/cover500/8955363974_1.jpg" alt="춤, 몸으로 예배하다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">춤, 몸으로 예배하다</h3>
+                <p class="book-card__translator">번역: 유아람</p>
+                <p class="book-card__author">앤 스티븐슨</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=232323766" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/23232/37/cover500/8955968906_1.jpg" alt="시너지 셀링" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">시너지 셀링</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">칼 자이스,토마스 고든</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=106067567" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/10606/75/cover500/8938816109_1.jpg" alt="십자가, 그 놀라운 능력" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">십자가, 그 놀라운 능력</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">토니 에반스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=77352835" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/7735/28/cover500/8955365012_1.jpg" alt="십자가의 능력" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">십자가의 능력</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">찰스 해돈 스펄전</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=6948757" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/694/87/cover500/8904141206_1.jpg" alt="아담과 하와의 연애 뇌구조" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">아담과 하와의 연애 뇌구조</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">빌과 팸 파렐 부부,채드 이스텀</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=337128961" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/33712/89/cover500/k782939442_1.jpg" alt="여자치고 잘 뛰네" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">여자치고 잘 뛰네</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">로런 플레시먼</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=359489582" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/35948/95/cover500/k532037800_1.jpg" alt="여자는 미치지 않았다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">여자는 미치지 않았다</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">렙 브래들리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=43302877" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/4330/28/cover500/8955364490_1.jpg" alt="연애하기 전, 결혼 공부" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">연애하기 전, 결혼 공부</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">케니 잭슨</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=8032078" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/803/20/cover500/8955363648_1.jpg" alt="영을 분별하는 그리스도인" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">영을 분별하는 그리스도인</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">제시 펜 루이스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=11320815" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1132/8/cover500/8957975853_1.jpg" alt="예수 선언" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">예수 선언</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">래너드 스윗,프랭크 바이올라</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1120464" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/112/4/cover500/s442531390_1.jpg" alt="예수님처럼" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">예수님처럼</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">맥스 루케이도</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=8060200" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/806/2/cover500/8993239401_1.jpg" alt="예수님의 임재 연습" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">예수님의 임재 연습</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">앤드류 머레이</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=3532805" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/353/28/cover500/8995917288_1.jpg" alt="원띵 : 하나님의 갈망 한 가지 일" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">원띵 : 하나님의 갈망 한 가지 일</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">드레인 로버츠</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=292703609" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/29270/36/cover500/k802837909_1.jpg" alt="원더풀" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">원더풀</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">마티 마쵸스키</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=689290" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/68/92/cover500/8984711756_1.jpg" alt="은혜" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">은혜</h3>
+                <p class="book-card__translator">번역: 안지영</p>
+                <p class="book-card__author">셀린 휴즈</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=200637552" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/20063/75/cover500/k652635242_1.jpg" alt="은혜, 어떻게 받을 수 있을까?" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">은혜, 어떻게 받을 수 있을까?</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">찰스 해돈 스펄전</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=200637552" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/20063/75/cover500/k652635242_1.jpg" alt="은혜, 어떻게 받을 수 있을까?" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">은혜, 어떻게 받을 수 있을까?</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">찰스 해돈 스펄전</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=12042349" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1204/23/cover500/8993239509_1.jpg" alt="은혜가 전부가 되게 하라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">은혜가 전부가 되게 하라</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">찰스 해돈 스펄전</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=69751254" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/6975/12/cover500/k792434982_1.jpg" alt="어떻게 은혜를 누릴 것인가?" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">어떻게 은혜를 누릴 것인가?</h3>
+                <p class="book-card__translator">번역: 서하나</p>
+                <p class="book-card__author">찰스 해돈 스펄전</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=11501435" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1150/14/cover500/8932525389_1.jpg" alt="이것이 복음이다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">이것이 복음이다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">월터 찬트리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=331478519" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/33147/85/cover500/k612937036_1.jpg" alt="인생을 바꾸는 작은 습관들" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">인생을 바꾸는 작은 습관들</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">조안나 그로버,조나단 로즈</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=339704055" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/33970/40/cover500/k312930441_1.jpg" alt="인생을 레벨업하는 감각 스위치를 켜라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">인생을 레벨업하는 감각 스위치를 켜라</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">노만 파브,진델 시걸</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=877173" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/87/71/cover500/8992107366_1.jpg" alt="자연아 놀자 2" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">자연아 놀자 2</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">줄리아 맥네어 라이트</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=46885775" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/4688/57/cover500/8955364539_1.jpg" alt="좌충우돌 행복한 우리 교회" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">좌충우돌 행복한 우리 교회</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">로스 파슬리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=4340995" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/434/9/cover500/8960005843_1.jpg" alt="제자 캐스팅" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">제자 캐스팅</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">제럴드 싯처</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=90970364" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/9097/3/cover500/8938816036_1.jpg" alt="제자 삼는 교회" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">제자 삼는 교회</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">빌 헐</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=21589112" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/2158/91/cover500/8904164109_1.jpg" alt="지미 카터의 위즈덤" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">지미 카터의 위즈덤</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">지미 카터</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=537360" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/53/73/cover500/8984711330_1.jpg" alt="청소년 알파 지침서" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">청소년 알파 지침서</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">조나단 브랜트</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2166267" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/216/62/cover500/8955362870_1.jpg" alt="처음처럼 예배하라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">처음처럼 예배하라</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">탐 크라우터</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=62291044" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/6229/10/cover500/k692433323_1.jpg" alt="처치리스" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">처치리스</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">조지 바나,데이비드 키네먼</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2070640" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/207/6/cover500/8904090431_1.jpg" alt="치유기도" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">치유기도</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">릭 리차드슨</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=830298" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/83/2/cover500/8955362277_1.jpg" alt="크레이지 메이커" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">크레이지 메이커</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">폴 마이어,로버트 와이즈</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=341953858" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/34195/38/cover500/8934905662_1.jpg" alt="크레셴도로 살아라" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">크레셴도로 살아라</h3>
+                <p class="book-card__translator">번역: 이윤정</p>
+                <p class="book-card__author">스티븐 코비,신시아 코비 할러</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=3262089" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/326/20/cover500/8955363095_1.jpg" alt="크라운 성경적 재정 교육 (학생 교재)" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">크라운 성경적 재정 교육 (학생 교재)</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크라운 파이낸셜 미니스트리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=3262264" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/326/22/cover500/8955363109_1.jpg" alt="크라운 성경적 재정 교육 (실천 워크북)" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">크라운 성경적 재정 교육 (실천 워크북)</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크라운 파이낸셜 미니스트리</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=69051015" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/6905/10/cover500/8955364822_1.jpg" alt="태블릿에서 테이블로" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">태블릿에서 테이블로</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">래너드 스윗</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=25431297" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/2543/12/cover500/8984711950_1.jpg" alt="텅 빈 십자가" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">텅 빈 십자가</h3>
+                <p class="book-card__translator">번역: 안지영</p>
+                <p class="book-card__author">마이클 그린</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=33175848" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3317/58/cover500/895937346x_1.jpg" alt="페터 춤토르 건축을 생각하다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">페터 춤토르 건축을 생각하다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">페터 춤토르</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=33175800" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/3317/58/cover500/8959373451_1.jpg" alt="페터 춤토르 분위기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">페터 춤토르 분위기</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">페터 춤토르</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=6797677" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/679/76/cover500/8955363419_2.jpg" alt="평범함 속의 권능" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">평범함 속의 권능</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">R. A. 토레이</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=2377529" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/237/75/cover500/8901085925_1.jpg" alt="평안하게 산다는 것" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">평안하게 산다는 것</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">메리 서덜랜드</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=10118859" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/1011/88/cover500/895536377x_1.jpg" alt="하나님을 아는 지식" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님을 아는 지식</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">제임스 패커</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=906715" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/90/67/cover500/8904156874_1.jpg" alt="하나님을 만나는 글쓰기" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님을 만나는 글쓰기</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">루시 쇼</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1148813" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/114/88/cover500/8955362439_1.jpg" alt="하나님 당신께 이끌리고 있습니다" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님 당신께 이끌리고 있습니다</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">헨리 블랙커비</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=22316760" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/2231/67/cover500/8955364164_1.jpg" alt="하나님이 거하시는 책" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님이 거하시는 책</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">크리스 웹</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=163013" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/0/16/cover500/8955360347_1.jpg" alt="하나님의 모략" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님의 모략</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">댈러스 윌라드</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=139352861" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/13935/28/cover500/8938816311_1.jpg" alt="하나님의 사탄" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님의 사탄</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">어윈 W. 루처</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=4009582" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/400/95/cover500/8993430292_1.jpg" alt="하나님의 여행자" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님의 여행자</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">브렌트 빌</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=303486269" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/30348/62/cover500/k232839547_1.jpg" alt="하나님은 나를 위해 천국을 만드셨어요" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">하나님은 나를 위해 천국을 만드셨어요</h3>
+                <p class="book-card__translator">번역: 윤주란</p>
+                <p class="book-card__author">마티 마쵸스키</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1028657" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/102/86/cover500/8955362730_2.jpg" alt="현대인을 위한 하나님의 임재연습" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">현대인을 위한 하나님의 임재연습</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">스티브 L. 케이스</p>
+            </div>
+        </a>
+        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=130560835" target="_blank" class="book-card">
+            <div class="book-card__image-container">
+                <img src="https://image.aladin.co.kr/product/13056/8/cover500/8938816281_1.jpg" alt="확신에 찬 설교" class="book-card__image">
+            </div>
+            <div class="book-card__info">
+                <h3 class="book-card__title">확신에 찬 설교</h3>
+                <p class="book-card__translator">번역: 장택수</p>
+                <p class="book-card__author">제임스 댄</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
